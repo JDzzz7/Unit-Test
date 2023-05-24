@@ -1,5 +1,6 @@
 import random
 
+
 class Node:
 
     def __init__(self, x, y):
@@ -7,13 +8,15 @@ class Node:
         self.y = y
         self.visited = False
 
-def gen_grid(rows, cols)->list:
+
+def gen_grid(rows, cols) -> list:
     grid = [[] for i in range(rows)]
     for i in range(rows):
         for j in range(cols):
             cell = Node(j, i)
             grid[i].append(cell)
     return grid
+
 
 if __name__ == '__main__':
     print(f'Hello and welcome!')
