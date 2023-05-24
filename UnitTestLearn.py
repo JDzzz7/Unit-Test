@@ -17,8 +17,9 @@ class TestStringMethod(unittest.TestCase):
             string.split(2)
 
     # def test_length(self):
-    #    string = 'AOK'
-    #    self.assertTrue(len(string) == 5, msg='false')
+    #     s = 'AOK'
+    #     self.assertFalse(len(s) == 3)
+    #     self.assertTrue(len(s) == 5, "testing")
 
 
 if __name__ == '__main__':
