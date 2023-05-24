@@ -1,6 +1,7 @@
 import unittest
 
 '''
+python -m unittest -v filepath/filename # For verbose
 assertEqual(first, second, msg=None) # Test if first == second
 assertTrue(expr, msg=None) # Test if the expression is TRUE
 assertFalse(expr, msg=None) # Test if the expression is FAlSE
@@ -9,6 +10,8 @@ assertNotIn(member, container, msg=None) # Test if member is NOT IN container
 '''
 
 
+# Skip decorators can be used for classes and methods
+# @unittest.skip("this is a test")
 class TestTrials(unittest.TestCase):
     # Setup variables for testing
     def setUp(self):
@@ -17,8 +20,10 @@ class TestTrials(unittest.TestCase):
         self.lst = [7 for i in range(len(self.s))]
         self.num1 = 10
         self.num2 = 20
+        self.longMessage = True
 
-    # Test for greater than
+    # Test for greater than, with conditional skip decorator
+    @unittest.skipIf(7 < 10, "skip if 7 < 10")
     def test_greater(self):
         self.assertTrue(self.num2 > self.num1)
         self.assertTrue(len(self.d) > 1)
@@ -74,6 +79,6 @@ def suite_bundle():
 
 # Driver function
 if __name__ == "__main__":
-    runner = unittest.TextTestRunner()
-    runner.run(suite_bundle())
-    # unittest.main()
+    # runner = unittest.TextTestRunner()
+    # runner.run(suite_bundle())
+    unittest.main(verbosity=2)
